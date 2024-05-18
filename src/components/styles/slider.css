@@ -1,0 +1,20 @@
+/* .slidercontainer {
+    width: 90%;
+    height: 0%;
+    z-index: 0;
+    overflow: hidden;
+  } */
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100rem;
+    height: 33rem;
+    object-fit: cover;
+  }
+  

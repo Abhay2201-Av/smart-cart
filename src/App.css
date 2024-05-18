@@ -1,0 +1,358 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Prompt", sans-serif;
+  transition: 0.2s linear;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-padding-top: 9rem;
+  scroll-behavior: smooth;
+}
+
+.navbar{
+  background: #90e0ef;
+  padding-right: 15px;
+  padding-left: 25px;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  transition: 0.5s;
+}
+
+.dark-nav{
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.slider-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #90e0ef;
+  height: 710px;
+  width: 100%;
+}
+
+.header-container{
+  overflow: hidden;
+  font-size: 30px;
+  color: #0d1b2a;
+  text-transform: uppercase;
+}
+
+.hot-trend{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.discover{
+  color: #333;
+}
+
+.discover::after{
+  content: '';
+  height: 2px;
+  width: 100%;
+  background-color: #333;
+  display: block;
+
+}
+
+body::-webkit-scrollbar{
+  width: 0.6rem;
+}
+
+body::-webkit-scrollbar-track{
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb{
+  background-color: #252422;
+  border-radius: 5rem;
+}
+
+body::-webkit-scrollbar-thumb:hover{
+  background-color: #ddd;
+}
+
+.logoh1{
+  color: #333;
+  cursor: pointer;
+  transition:  1s;
+}
+
+.logoh1:hover{
+  color: #000;
+}
+ 
+.logo-span{
+  font-family: "Prompt", sans-serif;
+  color: #333;
+  padding: 25px 0px 20px 0px;
+}
+
+.menu ul li{
+  text-align: center;
+  list-style: none;
+  display: inline-block;
+  cursor: pointer;
+  font-family: "Prompt", sans-serif;
+}
+
+.menu ul li{
+  position: relative;
+  color: #403d39;
+  background: none;
+  font-size: 13px;
+  margin-right: 25px;
+  margin-left: 25px;
+  letter-spacing: 0.5px;
+  padding: 10px 0;
+}
+
+.menu ul li:after{
+  content: "";
+  position: absolute;
+  background-color: #526cd0;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -0.1px;
+  transition: 0.3s;
+}
+
+.menu ul li:hover:after{
+  width: 100%;
+}
+
+.about{
+  color: #403d39;
+  transition: 0.3s;
+}
+
+.about:hover{
+  color: #252422;
+}
+
+.contact{
+  color: #403d39;
+  transition: 0.3s;
+}
+
+.contact:hover{
+  color: #252422;
+}
+
+.log-in{
+  display: none;
+}
+
+.active{
+  color: #000;
+}
+
+.navdiv{
+  height: 90px;
+  padding:   2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.nav-toggle{
+  display: none;
+}
+
+.Log-In {
+  padding: 12.5px 30px;
+  border: 0;
+  border-radius: 100px;
+  background-color: #000;
+  color: #ffffff;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  cursor: pointer;
+}
+
+.Log-In:hover {
+  background-color: #333;
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+
+.Log-In:active {
+  background-color: #252422;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.98);
+} 
+
+.home-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  overflow: hidden;
+  align-content: center;
+  padding: 20px 150px;
+} 
+
+.shop-card-home{
+  font-family: "Poppins", sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  text-align: center;
+  width: 80%;
+  margin: 10px;
+  padding: 10px;
+  transition: transform 0.5s;
+  background-color: white;
+}
+
+.shop-card-home:hover {
+  transform: translateY(-5px);
+}
+
+.shop-card-home img {
+  width: 100px;
+  padding: 0px;
+  height: 150px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.shop-card-home img:hover{
+  width: 110px;
+  height: 160px;
+}
+
+.shop-card-home h1 {
+  font-size: 15px;
+  padding: 5px;
+  font-weight: 550;
+}
+
+.shop-card-home p {
+  padding: 5px;
+}
+
+.shop-card-home span {
+  color: #ff523b;
+}
+
+.clothcontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow: hidden;
+  align-content: center;
+  padding: 20px 150px;
+}
+
+.shop-card {
+  font-family: "Poppins", sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  text-align: center;
+  width: 80%;
+  margin: 10px;
+  padding: 10px;
+  transition: transform 0.5s;
+  background-color: white;
+}
+
+.shop-card:hover {
+  transform: translateY(-5px);
+}
+
+.shop-card img {
+  width: 100px;
+  padding: 0px;
+  height: 150px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.shop-card img:hover{
+  width: 110px;
+  height: 160px;
+}
+
+.shop-card h1 {
+  font-size: 15px;
+  padding: 5px;
+  font-weight: 550;
+}
+
+.shop-card p {
+  padding: 5px;
+}
+
+.shop-card span {
+  color: #ff523b;
+}
+
+.btn {
+  background-color: #333;
+  outline: none;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 30px;
+  cursor: pointer;
+  transition: background 1s;
+}
+
+.btn:hover {
+  background: #b5b5b5;
+  color: #333;
+}
+
+
+.footer-text{
+  color: #333;
+  transition: 0.5s;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-text:hover{
+  color: #000;
+}
+
+.cartpng{
+  display: flex;
+  align-items: center;
+}
+
+.cart{
+  margin-bottom: 20px;
+}
+
+.cart sup{
+  font-family: "Prompt", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 18px;
+  width: 18px;
+  margin-left: 16px;
+  background: #526cd0;
+  border-radius: 50%;
+}
+
+.side-btn{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.slider {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr  ;
+}
