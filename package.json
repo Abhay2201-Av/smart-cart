@@ -1,7 +1,7 @@
 {
   "name": "fake-store",
   "private": true,
-  "homepage": "https://abhay2201-av.github.io/smart-cart",
+  "homepage": "https://abhay2201-av.github.io/smart-cart/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
