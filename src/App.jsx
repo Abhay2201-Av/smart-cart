@@ -1,24 +1,22 @@
 import "./App.css";
 import "./index.css";
-import Test from "./components/Test";
-import { Routes, Route } from "react-router-dom";
+// import Test from "./components/Test";
+// import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import MenClothing from "./components/MenClothing";
-import WomenClothing from "./components/WomenClothing";
-import Electronics from "./components/Electronics";
-import Jewellery from "./components/Jewellery";
-import Footer from "./components/Footer";
-import CartList from "./components/CartList";
-// import { CheckOutForm } from "./components/CheckOutFrom";
-import Registrastion from "./components/Registrastion";
-import LogIn from "./components/LogIn";
+// import MenClothing from "./components/MenClothing";
+// import WomenClothing from "./components/WomenClothing";
+// import Electronics from "./components/Electronics";
+// import Jewellery from "./components/Jewellery";
+// import Footer from "./components/Footer";
+// import CartList from "./components/CartList";
+// import Registrastion from "./components/Registrastion";
+// import LogIn from "./components/LogIn";
 import { AuthProvider } from "./components/context/AuthContext";
-import { ProtectedRoute } from "./components/pages/ProtectedRoute.Jsx";
+// import { ProtectedRoute } from "./components/pages/ProtectedRoute";
 import Aos from "aos";
 import "aos/dist/aos.css"
 import { useEffect } from "react";
-import Checkout from "./components/CheckOut";
-// import Slider from "./components/Slider";
+// import Checkout from "./components/CheckOut";
 
 export default function App() {
   useEffect(()=>{
@@ -30,7 +28,7 @@ export default function App() {
     <header >
     <NavBar  />
     </header>
-      <Routes>
+      {/* <Routes>
         <Route path="/MenClothing" element={<MenClothing />} />
         <Route path="/WomenClothing" element={<WomenClothing />} />
         <Route path="/electronics" element={<Electronics />} />
@@ -40,8 +38,7 @@ export default function App() {
         <Route path="/checkout" element={<ProtectedRoute  Component={Checkout} />} />
         <Route path="/registration" element={<Registrastion />} />
         <Route path="/login" element={<LogIn />} />
-      </Routes>  
-      {/* <Slider /> */}
+      </Routes>   */}
     <footer>
       <Footer />
     </footer> 

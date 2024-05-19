@@ -4,11 +4,13 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from 'react-redux'; 
 import React, { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-import { RiShoppingBasketLine } from "react-icons/ri";
 import Logo from "../utilitis/Logo.png"
 import { useAuth } from './context/AuthContext'
 import toast from 'react-hot-toast';
 import { CgMenu } from "react-icons/cg";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FiShoppingCart } from "react-icons/fi";
+import MenuIcon from '@mui/icons-material/Menu';
 
 import './styles/style.css'
 
@@ -98,7 +100,7 @@ function NavBar() {
         
         <div className="side-btn">
         <div className="cart">
-        <Link to="/CartList" style={{color:"#252422"}} ><sup style={{color:"#fff"}}>{cartItem.length}</sup> <RiShoppingBasketLine className="cartpng" style={{fontSize: "30px"}}></RiShoppingBasketLine>
+        <Link to="/CartList" style={{color:"#252422"}} ><sup style={{color:"#fff"}}>{cartItem.length}</sup> <FiShoppingCart className="cartpng" style={{fontSize: "30px"}}></FiShoppingCart>
         </Link>
         </div>
 
@@ -107,7 +109,7 @@ function NavBar() {
             <div id='login' className="login" style={{marginTop:"10px"}} ><Link to="/login"><button className='Log-In' onClick={(e)=> {LogIn(e)}}> Log In</button></Link></div>
           } 
 
-          <a className='nav-toggle' ><CgMenu onClick={()=> setShow(!show)} /> </a>
+          <a className='nav-toggle' ><MenuIcon onClick={()=> setShow(!show)} /> </a>
           </div>
       </div>
     </Navbar>
