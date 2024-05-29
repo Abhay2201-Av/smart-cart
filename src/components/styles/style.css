@@ -177,9 +177,17 @@
 }
 
 @media (max-width:480px){
-    
+
+    .logotext{
+        margin-left: -40px;
+    }
+
+    .logo-span{
+        font-size: 13px;
+    }
+
     .slider-img{
-        margin-top: -150px;
+        margin-top: -180px;
         height: 910px;
     }
 
@@ -198,25 +206,37 @@
         /* padding-right: 20rem; */
     }
 
+    .clothcontainer{
+        display: grid;
+        grid-template-columns: 1fr ;
+        align-content: center;
+        justify-content: center;
+        /* padding-right: 20rem; */
+    }
+
     .shop-card-home{
         width: 300px;
-      }
+    }
+
+    .shop-card{
+        width: 300px;
+    }
 
     .footer{
         text-align: center;
     }
 
     .cart{
-        margin-left: 15rem;
+        margin-left: 10rem;
     }
 
     .menubar{
         position: absolute;
         background-color: #fff;
         left: 0;
-        top: 100%;
+        /* top: 100%; */
         width: 100%;
-        padding-block: 230px;
+        padding-block: 50px;
     }
 
     .menubar ul li { 
