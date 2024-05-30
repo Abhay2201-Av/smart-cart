@@ -1,10 +1,11 @@
 {
   "name": "fake-store",
-  "homepage": "https://github.com/Abhay2201-Av/smart-cart", 
+  "homepage": "https://github.com/Abhay2201-Av/smart-cart",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
+    "start": "node index.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
@@ -30,6 +31,9 @@
     "auth0": "^4.3.0",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
+    "json-serve": "^0.1.0",
+    "json-server": "^1.0.0-beta.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
     "react-card-slider-component": "^1.0.9",
