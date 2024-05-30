@@ -18,7 +18,7 @@ function Electronics() {
     //   console.log(cart);
     // };
     useEffect(() => {
-      fetch("http://localhost:3000/catagory4")
+      fetch("https://fakestoreapi.com/products/category/electronics")
         .then((res) => res.json())
         .then((data) => setUser(data));
     }, []);

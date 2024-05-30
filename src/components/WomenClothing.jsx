@@ -18,7 +18,7 @@ function WomenClothing() {
     //   console.log(cart);
     // };
     useEffect(() => {
-      fetch("http://localhost:3000/catagory2")
+      fetch("https://fakestoreapi.com/products/category/women's%20clothing")
         .then((res) => res.json())
         .then((data) => setUser(data));
     }, []);

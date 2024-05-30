@@ -356,3 +356,7 @@ body::-webkit-scrollbar-thumb:hover{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr  ;
 }
+
+.error{
+  color: red;
+}

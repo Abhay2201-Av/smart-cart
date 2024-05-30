@@ -17,7 +17,7 @@ function MenClothing() {
     //   setCart([...cart, product]);
     //   console.log(cart);
     // };
-    const url = "http://localhost:3000/catagory1";
+    const url = "https://fakestoreapi.com/products/category/men's%20clothing";
     useEffect(() => {
       fetch(url)
         .then((res) => res.json())

@@ -5,91 +5,123 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import './styles/style.css'
 
+
 function Registrastion() {
-  const [formData,setFormData] = useState({
-    fullname:'',
-    email:'',
-    password:'',
-    cpassword:''
-  })
-  const [ errors, setErrors ] = useState({})
-  const [ valid,setValid ] = useState(true)
+  const [formData, setFormData] = useState({
+    fullname: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+
+  const [errors, setErrors] = useState({
+    fullname: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+
   const navigate = useNavigate();
-  const handleSubmit = (e) =>{
-    // console.log(formData);
-    // e.preventDefault();
-    localStorage.setItem("user", JSON.stringify(formData))
-    let isValid = true
-    let validationErrors = {}
-    if( formData.fullname === "" || formData.fullname === null){
-       isValid = false
-       validationErrors.fullname = "Full name is required"
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = { ...errors };
+
+    // Validate fullname
+    if (!formData.fullname.trim()) {
+      newErrors.fullname = 'fullname is required';
+      isValid = false;
+    } else {
+      newErrors.fullname = '';
     }
 
-    if( formData.email === "" || formData.email === null){
-      isValid = false
-      validationErrors.email = "Email is required"
+    // Validate email
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+      isValid = false;
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email.trim())) {
+      newErrors.email = 'Invalid email format';
+      isValid = false;
+    } else {
+      newErrors.email = '';
     }
 
-    if( formData.password === "" || formData.password === null){
-    isValid = false
-    validationErrors.password = "Password required"
-    }else if(formData.password.length < 6){
-     isValid = false;
-     validationErrors.password = "Password length at least 6 char"
+    // Validate password
+    if (!formData.password.trim()) {
+      newErrors.password = 'Password is required';
+      isValid = false;
+    } else if (formData.password.trim().length < 6) {
+      newErrors.password = 'Password must be at least 6 characters long';
+      isValid = false;
+    } else {
+      newErrors.password = '';
     }
 
-    if( formData.cpassword !== formData.password){
-    isValid = false
-    validationErrors.cpassword = "c password not match"
+    // Validate confirm password
+    if (!formData.confirmPassword.trim()) {
+      newErrors.confirmPassword = 'Please confirm password';
+      isValid = false;
+    } else if (formData.confirmPassword.trim() !== formData.password.trim()) {
+      newErrors.confirmPassword = 'Passwords do not match';
+      isValid = false;
+    } else {
+      newErrors.confirmPassword = '';
     }
-    setErrors(validationErrors)
-    setValid(isValid)
 
-    if(Object.keys(validationErrors).length === 0){
-      // alert('Ragistration Successfully')
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm(e)) {
+        e.preventDefault();
+      // Store user data in local storage
+      localStorage.setItem('user', JSON.stringify(formData));
       axios.post("http://localhost:3000/users", formData)
-      .then(() => {
-        toast("Ragistration Successsfully",{icon:"ℹ"})
-        navigate("/login")
-      } )
-      .catch(err => console.log(err))
-   }
-  }
+      .then(()=> toast.success('Registration successful!'));
+      navigate("/login")
+     toast.success('Registration successfully') 
+    }
+  };
+
   return (
     <div >
     <div class="from-container">   
     <div class="row">
       <div class="col-md-6 offset-md-3">
         {/* <!-- Registration form --> */}
-        <form class="Signup" onSubmit={(e)=>{ e.preventDefault(); handleSubmit()}}>
+        <form class="Signup" onSubmit={handleSubmit}>
           <h3>Create Your Account</h3>
-          {/* {
-            valid ? <></> : <span className='text-denger'>{errors.fullname}; {errors.email}; {errors.password}; {errors.cpassword} </span>
-          } */}
+        
           <div class="form-group">
               <label for="name">Full Name</label><br />
-              {valid ? <></> : <span className='text-denger'>{errors.fullname}</span>}
-            <input type="text" class="form-control" placeholder="Full Name" name="name"  
-              onChange={(e)=> setFormData({...formData, fullname: e.target.value})}/>
+              {errors.fullname && <div className="error">{errors.fullname}</div>}
+            <input type="text" class="form-control" placeholder="Full Name" name="fullname"  
+            value={formData.fullname} onChange={handleChange}/>
           </div>
           <div class="form-group">
               <label for="email">Email</label><br />
-              {valid ? <></> : <span className='text-denger'>{errors.email}</span>}
+              {errors.email && <div className="error">{errors.email}</div>}
             <input type="text" class="form-control" placeholder="Enter Email" name="email" 
-            onChange={(e)=> setFormData({...formData, email: e.target.value})} />
+            value={formData.email} onChange={handleChange} />
           </div>      
           <div class="form-group">
               <label for="psw">Password</label><br />
-              {valid ? <></> : <span className='text-denger'>{errors.password}</span>}
-            <input type="password" class="form-control" placeholder="Enter Password" name="psw"  
-             onChange={(e)=> setFormData({...formData, password: e.target.value})} /> 
+              {errors.password && <div className="error">{errors.password}</div>}
+            <input type="password" class="form-control" placeholder="Enter Password" name="password"  
+            value={formData.password} onChange={handleChange} /> 
           </div>   
           <div class="form-group">
             <label for="psw-repeat">Confirm Password</label><br />
-            {valid ? <></> : <span className='text-denger'>{errors.cpassword}</span>}
-            <input type="password" class="form-control" placeholder="Confirm Password" name="psw-repeat"  
-              onChange={(e)=> setFormData({...formData, cpassword: e.target.value})}/>
+            {errors.confirmPassword && <div className="error">{errors.confirmPassword}</div>}
+            <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword"  
+              value={formData.confirmPassword} onChange={handleChange}/>
           </div>
           
           <button type="submit" class="btn btn-success">Signup</button>

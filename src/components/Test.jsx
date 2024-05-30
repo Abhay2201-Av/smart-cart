@@ -15,7 +15,7 @@ function Test() {
 
   const dispatch = useDispatch();
 
-  const url = "http://localhost:3000/products";
+  const url = "https://fakestoreapi.com/products?limit=15";
   useEffect(() => {
     axios.get((url))
     .then((res) => setUser(res.data))
