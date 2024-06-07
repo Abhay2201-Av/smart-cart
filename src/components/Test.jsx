@@ -7,9 +7,12 @@ import axios from "axios";
 import toast from 'react-hot-toast';
 import './styles/style.css';
 import { FaGripLines } from "react-icons/fa";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function Test() {
   const [user, setUser] = useState([]);
+  const [loading, setLoading] = useState(true);
  
   // redux usedispatch
 
@@ -21,6 +24,12 @@ function Test() {
     .then((res) => setUser(res.data))
     .then((err) => console.log(err))
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    },2000)
+  }, [])
   
   return (
     <div className="App"> 
@@ -45,7 +54,7 @@ function Test() {
             return (
               <>
                 <div style={{textOverflow:"ellipsis" }} className="shop-card-home" product={product} key={product.id}>
-                  <img src={product.image} alt="" />
+                {loading ? (<Skeleton count={15} />) : (<><img src={product.image} alt=""  />
                   <h1 >{product.title}</h1>
                   <p>
                     Rating: <span>{product.rating.rate}</span>
@@ -53,7 +62,7 @@ function Test() {
                   <p>Price: $ {product.price}</p>
                   <button className="btn" onClick={() => {dispatch(addToCart(product)); toast.success(`${product.title.slice(0,36)} added to cart`)}}>
                   <FontAwesomeIcon icon={faCartPlus}  /> &nbsp;Add to Cart
-                  </button>
+                  </button> </>)}
                 </div>
               </>
             );
